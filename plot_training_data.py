@@ -39,7 +39,7 @@ mono_data = full_data[9,:,lower_data_bound:upper_data_bound]
 th1_data = full_data[10,:,lower_data_bound:upper_data_bound]
 th2_data = full_data[11,:,lower_data_bound:upper_data_bound]
 print("Max infection level: " + str(np.nanmax(infection_data)))
-action_data = np.load("./IIRABM_DRL_Experiments/very_limited_control0_6/13_action_test0.npy")
+action_data = np.load("./IIRABM_DRL_Experiments/limited_control/0_action_test0.npy")
 action_data = np.moveaxis(action_data, 0,-1)
 action_data = action_data[:,:,:4199]
 

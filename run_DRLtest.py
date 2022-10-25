@@ -15,13 +15,13 @@ import tensorflow as tf
 
 NO_ACTION=False
 
-_OH=0.12
+_OH=0.08
 _IS=2
 _NRI=0
-_NIR=1
-_injNum=28
+_NIR=2
+_injNum=20
 
-test_num = "test44"
+test_num = "test0"
 from iirabm_env_V2 import Iirabm_Environment
 
 
