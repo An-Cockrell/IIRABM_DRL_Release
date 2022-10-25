@@ -2,7 +2,7 @@
 A repository for code for training a DRL agent on the IIRABM DRL environment
 ---
 
-In the experiments we ran, a batch of 20 DDPG agents created using the stable_baselines3 package were trained simultaneously using MPI on the IIRABM environment. The environment is set up such that the agent selects an action, and that action is held for 6 hours, then the agent is free to select a new action based on its observation.
+In the experiments we ran, a batch of 20 DDPG agents created using the stable_baselines3 package were trained simultaneously using MPI on the IIRABM environment. The environment is set up such that the agent selects an action, and that action is held for a number of timesteps that correlates to 6 hours of real time, then the agent is free to select a new action based on its observation.
 
 The observation space available to the agents were aggregate values of all 11 cytokines in the simulation [TNF, sTNFr, IL10, GCSF, IFNg, PAF, IL1, IL4, IL8, IL12, sIL1r]. The values of the observation returned are the mean value at each step over the period of a particular action of the aggregate cytokines.
 
