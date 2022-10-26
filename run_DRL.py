@@ -16,7 +16,7 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 
 
-ENV_STEPS = 4200                # Total number of environment frames allowed
+ENV_STEPS = 5000                # Total number of environment frames allowed
 action_L1= .1
 potential_difference_mult=200
 phi_mult = 100

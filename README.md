@@ -8,7 +8,7 @@ The observation space available to the agents were aggregate values of all 11 cy
 
 The action space for the agent in the limited control scheme is to either add up to 10 units of a cytokine to each grid square of the simulation, or to diminish the amount of that cytokine at each grid square by a factor of up to 10^-3. In the limited control version, the cytokines available to be acted on are [TNF, IL1, IL2, IL4, IL8, IL12, IFNg].
 
-The simulation ends when oxygen deficit (a measure of total system damage in the IIRABM) either reaches a value below 100 (indicating a fully healed run) or above 8160 (indicating damage so great that the run is considered dead). If the simulation does not reach a terminal conclusion by 4200 simulation steps (~28 days of simulated time), the episode is cut off and a new one is started.
+The simulation ends when oxygen deficit (a measure of total system damage in the IIRABM) either reaches a value below 100 (indicating a fully healed run) or above 8160 (indicating damage so great that the run is considered dead). If the simulation does not reach a terminal conclusion by 5000 simulation steps (~21 days of simulated time), the episode is cut off and a new one is started.
 
 The reward at each step is the change in oxygen deficit compared to the previous step, with a decreasing value giving a positive reward. A terminal reward of 1000 is given for a run ending with a successful heal, and a penalty of -1000 is given for a run ending with a death.
 
