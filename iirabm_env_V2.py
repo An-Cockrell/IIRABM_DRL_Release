@@ -45,6 +45,7 @@ NUM_OBSERVTAIONS = 1            #Total number of timesteps observed by the agent
 ACTION_INDECES = [1,0,0,0,1,0,1,1,1,1,0]    #TNF, IL1, IL2, IL4, IL8, IL12, IFNg
 # ACTION_INDECES = [1,1,1,1,1,1,1,1,1,1,1]
 # ACTION_INDECES = [1,0,1,0,0,0,0,0,0,0,0]
+OBSERVATION_CYTOKINES = [1,1,1,1,1,1,1,1,1,1,1]
 NUM_CYTOKINES_CONTROLLED = sum(ACTION_INDECES)   #Number of cytokines controlled by the agent
 print(ACTION_INDECES)
 # Estimated maximum values for 11 cytokines
@@ -133,12 +134,12 @@ class Iirabm_Environment(gym.Env):
             dtype=np.float32)
 
         # offset and scaling factors for observation regularization
-        obs_max = all_signals_max
+        obs_max = np.array([all_signals_max[i] for i in range(len(OBSERVATION_CYTOKINES)) if OBSERVATION_CYTOKINES[i] == 1])
         self.input_offset = (obs_max)/2
         self.input_scale = (obs_max)/2
 
         # observation space is 11 aggregate cytokine values
-        obs_space_high = np.zeros(11)
+        obs_space_high = np.zeros(sum(OBSERVATION_CYTOKINES))
         obs_space_high[:] = np.inf
         obs_max = obs_space_high
 
@@ -326,7 +327,10 @@ class Iirabm_Environment(gym.Env):
         observation = cytokines
 
         # attempt to make the observation 0 centered and normalized to (-1,1), then flatten to 1D
-        # for i in range(observation.shape[1]):
+        for i in range(observation.shape[1]):
+            if OBSERVATION_CYTOKINES[i] == 0: # only know value of observed cytokines
+                observation[:, i] = 0
+
         #     observation[:,i] = (observation[:,i] - self.input_offset[1:])/self.input_scale[1:]
         # observation = observation.flatten()
 
