@@ -42,10 +42,10 @@ FINAL_HEAL_OXYDEF = 50          #Oxydef level where subject is considered totall
 MAX_OXYDEF = 8160               #Oxydef level where subject is considered dead
 MAX_STEPS = 9999                #Max number of steps the simulation will play
 NUM_OBSERVTAIONS = 1            #Total number of timesteps observed by the agent
-ACTION_INDECES = [1,0,0,0,1,0,1,1,1,1,0]    #TNF, IL1, IL2, IL4, IL8, IL12, IFNg
+ACTION_INDECES = [1,0,0,1,1,0,0,1,0,0,0]    #TNF, IL1, IL2, IL4, IL8, IL12, IFNg
 # ACTION_INDECES = [1,1,1,1,1,1,1,1,1,1,1]
 # ACTION_INDECES = [1,0,1,0,0,0,0,0,0,0,0]
-OBSERVATION_CYTOKINES = [1,1,1,1,1,1,1,1,1,1,1]
+OBSERVATION_CYTOKINES = [0,1,0,0,0,1,0,0,1,0,0,0]
 NUM_CYTOKINES_CONTROLLED = sum(ACTION_INDECES)   #Number of cytokines controlled by the agent
 print(ACTION_INDECES)
 # Estimated maximum values for 11 cytokines
