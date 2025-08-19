@@ -78,7 +78,7 @@ def setUpWrapper():
     sim.getGCSFmult.argtypes = (ctypes.POINTER(ctypes.c_void_p),)
     sim.getGCSFmult.restype = ctypes.c_float
     sim.getAllSignalsReturn.argtypes = (ctypes.POINTER(ctypes.c_void_p),)
-    sim.getAllSignalsReturn.restype = ndpointer(dtype=ctypes.c_float, shape=(20,10000))
+    sim.getAllSignalsReturn.restype = ndpointer(dtype=ctypes.c_float, shape=(20,20000))
 
     sim.setSeed.argtypes = (ctypes.POINTER(ctypes.c_void_p),ctypes.c_int)
     sim.setPAFmult.argtypes = (ctypes.POINTER(ctypes.c_void_p),ctypes.c_float)

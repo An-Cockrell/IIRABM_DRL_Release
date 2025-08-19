@@ -7,3 +7,11 @@
 	const int cellCapacity=28;
 	const int numRules=25;
 	const int numRuleParams=17;
+
+
+
+//PK/PD variables
+const float etanerceptReduction=0.9;
+const float rilanoceptReduction=0.9;
+const float dupilumabReduction=0.9;
+const float ustekinumabReduction=0.9;
