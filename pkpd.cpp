@@ -15,6 +15,9 @@ extern const float etanerceptReduction,rilanoceptReduction,dupilumabReduction,us
 extern const float etanerceptElimConstant,rilanoceptElimConstant,filgrastimElimConstant,
                    actimmuneElimConstant,dupilumabElimConstant,ustekinumabElimConstant;
 
+int drugTimings[6]; //etanercept,rilonacept, filgrastim, actimmune, dupilumab, ustekinumab;
+float drugConcentrations[6];
+
 //Etanercept - binds to and neutralizes TNF >90% for enture drug course; Half-life =100 h^{-1}; elim constant=0.0069
 //1) https://pmc.ncbi.nlm.nih.gov/articles/PMC3726066/
 //2) Update on the use of etanercept across a spectrum of rheumatoid disorders
@@ -40,12 +43,16 @@ float oneCompartmentPKPD(float volume, float initialDose, float timeElapsed, flo
   float answer;
   answer=initialDose/volume*exp(-eliminationConstant*timeElapsed);
   return answer;
-
 }
 
 void etanerceptEffect(){
+  float ER;
+  ER=etanerceptReduction;
+  if(drugConcentrations[0]<0.33){
+    ER=etanerceptReduction*(3*drugConcentration[0]);
+  }
   for(i=0;i<totalCells;i++){
-    ecArray[i].TNF-=(etanerceptReduction*ecArray[i].TNF);
+    ecArray[i].TNF-=(ER*ecArray[i].TNF);
   }
 }
 
@@ -59,4 +66,28 @@ void dipulmabEffect(){
   for(i=0;i<totalCells;i++){
     ecArray[i].IL4-=(dupilumabReduction*ecArray[i].IL4);
   }
+}
+
+void applyEtanercept(){
+  drugConcentrations[0]=1.0;
+}
+
+void applyRilonacept(){
+  drugConcentrations[1]=1.0;
+}
+
+void applyFilgrastim(){
+  drugConcentrations[2]=1.0;
+}
+
+void applyActimmune(){
+  drugConcentrations[3]=1.0;
+}
+
+void applyDupilumab(){
+  drugConcentrations[4]=1.0;
+}
+
+void applyUstekinumab(){
+  drugConcentrations[5]=1.0;
 }
