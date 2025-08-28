@@ -45,7 +45,6 @@ public:
 
   void readIntervention(); // not implemented
 
-
   vector<EC> ecArray;
   vector<int> ecIndexes;
   vector<pmn> pmnArray;

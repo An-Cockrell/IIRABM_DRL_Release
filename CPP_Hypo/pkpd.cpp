@@ -10,7 +10,7 @@
 using namespace std;
 
 extern vector<EC> ecArray;
-extern const int cellCapacity,xDim,yDim,injuryStep,parameterInput,numTimeSteps;
+extern const int cellCapacity,xDim,yDim,injuryStep,parameterInput,numTimeSteps,step;
 extern const float etanerceptReduction,rilanoceptReduction,dupilumabReduction,ustekinumabReduction;
 extern const float etanerceptElimConstant,rilanoceptElimConstant,filgrastimElimConstant,
                    actimmuneElimConstant,dupilumabElimConstant,ustekinumabElimConstant;
@@ -70,24 +70,30 @@ void dipulmabEffect(){
 
 void applyEtanercept(){
   drugConcentrations[0]=1.0;
+  drugTimings[0]=step;
 }
 
 void applyRilonacept(){
   drugConcentrations[1]=1.0;
+  drugTimings[1]=step;
 }
 
 void applyFilgrastim(){
   drugConcentrations[2]=1.0;
+  drugTimings[2]=step;
 }
 
 void applyActimmune(){
   drugConcentrations[3]=1.0;
+  drugTimings[3]=step;
 }
 
 void applyDupilumab(){
   drugConcentrations[4]=1.0;
+  drugTimings[4]=step;
 }
 
 void applyUstekinumab(){
   drugConcentrations[5]=1.0;
+  drugTimings[5]=step;
 }
