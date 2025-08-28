@@ -45,6 +45,39 @@ float oneCompartmentPKPD(float volume, float initialDose, float timeElapsed, flo
   return answer;
 }
 
+void updateDrugConcentrations(){
+  float timeElapsed;
+  if(drugConcentrations[0]>0){
+    timeElapsed=(step-drugTimings[0])/10;
+    drugConcentrations[0]=oneCompartmentPKPD(1,1,timeElapsed,etanerceptElimConstant)
+  }
+
+  if(drugConcentrations[1]>0){
+    timeElapsed=(step-drugTimings[1])/10;
+    drugConcentrations[1]=oneCompartmentPKPD(1,1,timeElapsed,rilanoceptElimConstant
+  }
+
+  if(drugConcentrations[2]>0){
+    timeElapsed=(step-drugTimings[2])/10;
+    drugConcentrations[2]=oneCompartmentPKPD(1,1,timeElapsed,filgrastimElimConstant)
+  }
+
+  if(drugConcentrations[3]>0){
+    timeElapsed=(step-drugTimings[3])/10;
+    drugConcentrations[3]=oneCompartmentPKPD(1,1,timeElapsed,actimmuneElimConstant)
+  }
+
+  if(drugConcentrations[4]>0){
+    timeElapsed=(step-drugTimings[4])/10;
+    drugConcentrations[4]=oneCompartmentPKPD(1,1,timeElapsed,dupilumabElimConstant)
+  }
+
+  if(drugConcentrations[5]>0){
+    timeElapsed=(step-drugTimings[5])/10;
+    drugConcentrations[5]=oneCompartmentPKPD(1,1,timeElapsed,ustekinumabElimConstant)
+  }
+}
+
 void etanerceptEffect(){
   float ER;
   ER=etanerceptReduction;
