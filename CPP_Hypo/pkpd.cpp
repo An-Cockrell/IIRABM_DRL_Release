@@ -90,12 +90,22 @@ void etanerceptEffect(){
 }
 
 void rilonaceptEffect(){
+  float RR;
+  RR=rilonaceptReduction;
+  if(drugConcentrations[0]<0.5){
+    RR=rilonaceptReduction*(2*drugConcentration[1]);
+  }
   for(i=0;i<totalCells;i++){
     ecArray[i].IL1-=(rilonaceptReduction*ecArray[i].IL1);
   }
 }
 
 void dipulmabEffect(){
+  float RR;
+  DR=dipulmabReduction;
+  if(drugConcentrations[0]<0.2){
+    DR=dipulmabReduction*(5*drugConcentration[4]);
+  }
   for(i=0;i<totalCells;i++){
     ecArray[i].IL4-=(dupilumabReduction*ecArray[i].IL4);
   }
