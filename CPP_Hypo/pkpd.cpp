@@ -127,21 +127,21 @@ void applyRilonacept(){
   drugTimings[1]=step;
 }
 
-void applyFilgrastim(){
-  // drugConcentrations[2]=1.0;
-  // drugTimings[2]=step;
-  for(i=0;i<totalCells;i++){
-    ecArray[i].GCSF+=10;
-  }
-}
-
-void applyActimmune(){
-  // drugConcentrations[3]=1.0;
-  // drugTimings[3]=step;
-  for(i=0;i<totalCells;i++){
-    ecArray[i].IFNg+=5;
-  }
-}
+// void applyFilgrastim(){
+//   // drugConcentrations[2]=1.0;
+//   // drugTimings[2]=step;
+//   for(i=0;i<totalCells;i++){
+//     ecArray[i].GCSF+=10;
+//   }
+// }
+//
+// void applyActimmune(){
+//   // drugConcentrations[3]=1.0;
+//   // drugTimings[3]=step;
+//   for(i=0;i<totalCells;i++){
+//     ecArray[i].IFNg+=5;
+//   }
+// }
 
 void applyDupilumab(){
   drugConcentrations[4]=1.0;
