@@ -54,7 +54,7 @@ void updateDrugConcentrations(){
 
   if(drugConcentrations[1]>0){
     timeElapsed=(step-drugTimings[1])/10;
-    drugConcentrations[1]=oneCompartmentPKPD(1,1,timeElapsed,rilanoceptElimConstant
+    drugConcentrations[1]=oneCompartmentPKPD(1,1,timeElapsed,rilanoceptElimConstant)
   }
 
   // if(drugConcentrations[2]>0){
