@@ -57,15 +57,15 @@ void updateDrugConcentrations(){
     drugConcentrations[1]=oneCompartmentPKPD(1,1,timeElapsed,rilanoceptElimConstant
   }
 
-  if(drugConcentrations[2]>0){
-    timeElapsed=(step-drugTimings[2])/10;
-    drugConcentrations[2]=oneCompartmentPKPD(1,1,timeElapsed,filgrastimElimConstant)
-  }
-
-  if(drugConcentrations[3]>0){
-    timeElapsed=(step-drugTimings[3])/10;
-    drugConcentrations[3]=oneCompartmentPKPD(1,1,timeElapsed,actimmuneElimConstant)
-  }
+  // if(drugConcentrations[2]>0){
+  //   timeElapsed=(step-drugTimings[2])/10;
+  //   drugConcentrations[2]=oneCompartmentPKPD(1,1,timeElapsed,filgrastimElimConstant)
+  // }
+  //
+  // if(drugConcentrations[3]>0){
+  //   timeElapsed=(step-drugTimings[3])/10;
+  //   drugConcentrations[3]=oneCompartmentPKPD(1,1,timeElapsed,actimmuneElimConstant)
+  // }
 
   if(drugConcentrations[4]>0){
     timeElapsed=(step-drugTimings[4])/10;
@@ -96,18 +96,24 @@ void rilonaceptEffect(){
     RR=rilonaceptReduction*(2*drugConcentration[1]);
   }
   for(i=0;i<totalCells;i++){
-    ecArray[i].IL1-=(rilonaceptReduction*ecArray[i].IL1);
+    ecArray[i].IL1-=(RR*ecArray[i].IL1);
   }
 }
 
 void dipulmabEffect(){
-  float RR;
+  float DR;
   DR=dipulmabReduction;
   if(drugConcentrations[0]<0.2){
     DR=dipulmabReduction*(5*drugConcentration[4]);
   }
   for(i=0;i<totalCells;i++){
-    ecArray[i].IL4-=(dupilumabReduction*ecArray[i].IL4);
+    ecArray[i].IL4-=(DR*ecArray[i].IL4);
+  }
+}
+
+void ustekinumabEffect(){
+  for(i=0;i<totalCells;i++){
+    ecArray[i].IL12-=(ustekinumabReduction*ecArray[i].IL12);
   }
 }
 
@@ -122,13 +128,19 @@ void applyRilonacept(){
 }
 
 void applyFilgrastim(){
-  drugConcentrations[2]=1.0;
-  drugTimings[2]=step;
+  // drugConcentrations[2]=1.0;
+  // drugTimings[2]=step;
+  for(i=0;i<totalCells;i++){
+    ecArray[i].GCSF+=10;
+  }
 }
 
 void applyActimmune(){
-  drugConcentrations[3]=1.0;
-  drugTimings[3]=step;
+  // drugConcentrations[3]=1.0;
+  // drugTimings[3]=step;
+  for(i=0;i<totalCells;i++){
+    ecArray[i].IFNg+=5;
+  }
 }
 
 void applyDupilumab(){
