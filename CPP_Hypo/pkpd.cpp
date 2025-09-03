@@ -50,11 +50,13 @@ void updateDrugConcentrations(){
   if(drugConcentrations[0]>0){
     timeElapsed=(step-drugTimings[0])/10;
     drugConcentrations[0]=oneCompartmentPKPD(1,1,timeElapsed,etanerceptElimConstant)
+    etanerceptEffect();
   }
 
   if(drugConcentrations[1]>0){
     timeElapsed=(step-drugTimings[1])/10;
     drugConcentrations[1]=oneCompartmentPKPD(1,1,timeElapsed,rilanoceptElimConstant)
+    rilonaceptEffect();
   }
 
   // if(drugConcentrations[2]>0){
@@ -70,11 +72,13 @@ void updateDrugConcentrations(){
   if(drugConcentrations[4]>0){
     timeElapsed=(step-drugTimings[4])/10;
     drugConcentrations[4]=oneCompartmentPKPD(1,1,timeElapsed,dupilumabElimConstant)
+    dipulmabEffect();
   }
 
   if(drugConcentrations[5]>0){
     timeElapsed=(step-drugTimings[5])/10;
     drugConcentrations[5]=oneCompartmentPKPD(1,1,timeElapsed,ustekinumabElimConstant)
+    ustekinumabEffect();
   }
 }
 
